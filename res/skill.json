@@ -1,0 +1,23 @@
+{
+  "name": "Classic Sci Fi Horror Catalog",
+  "skillname": "skill-classic-scifi-horror",
+  "authorname": "JarbasSkills",
+  "foldername": "",
+  "url": "https://github.com/JarbasSkills/skill-classic-scifi-horror",
+  "branch": "v0.1",
+  "desktopFile": false,
+  "warning": "",
+  "systemDeps": false,
+  "platforms": [
+    "arm",
+    "arm64",
+    "i386",
+    "x86_64",
+    "ia64"
+  ],
+  "examples": [
+    "open classic scifi horror menu",
+    "play classic scifi movie",
+    "play public domain movie"
+  ]
+}
