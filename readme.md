@@ -1,4 +1,4 @@
-# <img src='./ui/picfixer.png' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/>Classic Sci Fi Horror Collection
+# <img src='./ui/scifihorror.png' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/>Classic Sci Fi Horror Collection
 
 
 ## About
