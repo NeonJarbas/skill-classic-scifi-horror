@@ -1,5 +1,5 @@
-from ovos_workshop.frameworks.playback import CommonPlayMediaType, CommonPlayPlaybackType, \
-    CommonPlayMatchConfidence
+from ovos_plugin_common_play.ocp import MediaType, PlaybackType, \
+    MatchConfidence
 from ovos_workshop.skills.video_collection import VideoCollectionSkill
 from mycroft.skills.core import intent_file_handler
 from pyvod import Collection, Media
@@ -10,7 +10,7 @@ class ClassicScifiHorrorSkill(VideoCollectionSkill):
 
     def __init__(self):
         super().__init__("ClassicScifiHorror")
-        self.supported_media = [CommonPlayMediaType.MOVIE]
+        self.supported_media = [MediaType.MOVIE]
         self.message_namespace = basename(dirname(__file__)) + ".jarbasskills"
         # load video catalog
         path = join(dirname(__file__), "res", "scifi_horror.jsondb")
@@ -20,8 +20,8 @@ class ClassicScifiHorrorSkill(VideoCollectionSkill):
         self.skill_logo = join(dirname(__file__), "ui", "scifihorror.png")
         self.skill_icon = join(dirname(__file__), "ui", "scifihorror.png")
         self.default_bg = logo
-        self.media_type = CommonPlayMediaType.MOVIE
-        self.playback_type = CommonPlayPlaybackType.VIDEO
+        self.media_type = MediaType.MOVIE
+        self.playback_type = PlaybackType.VIDEO
 
     # voice interaction
     def get_intro_message(self):
@@ -46,10 +46,10 @@ class ClassicScifiHorrorSkill(VideoCollectionSkill):
 
     def match_media_type(self, phrase, media_type):
         score = 0
-        if self.voc_match(phrase, "video") or media_type == CommonPlayMediaType.VIDEO:
+        if self.voc_match(phrase, "video") or media_type == MediaType.VIDEO:
             score += 5
 
-        if self.voc_match(phrase, "movie") or media_type == CommonPlayMediaType.MOVIE:
+        if self.voc_match(phrase, "movie") or media_type == MediaType.MOVIE:
             score += 10
 
         if self.voc_match(phrase, "old"):
