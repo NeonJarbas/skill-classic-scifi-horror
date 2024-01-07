@@ -28,16 +28,26 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
 
         for url, data in self.archive.items():
             t = data["title"].split("|")[0].split("(")[0].strip()
-            if ":" in t:
-                t1, t2 = t.split(":", 1)
-                title.append(t1.strip())
-                title.append(t2.strip())
-            if data.get("sound") in ["silent", "Silent, No Music"]:
+            if data.get("sound") in ["silent", "Silent, No Music"] or \
+                    any(a in data["collection"] for a in ["silent_films"]) or \
+                    any(a in data["tags"] for a in ["Silent", " silent", "silent"]):
                 silent_movies.append(t)
+                if ":" in t:
+                    t1, t2 = t.split(":", 1)
+                    silent_movies.append(t1.strip())
+                    silent_movies.append(t2.strip())
             elif data.get("color") in ["B&W", "b&w", "black & white", "black and white"]:
                 bw_movies.append(t)
+                if ":" in t:
+                    t1, t2 = t.split(":", 1)
+                    bw_movies.append(t1.strip())
+                    bw_movies.append(t2.strip())
             else:
                 title.append(t)
+                if ":" in t:
+                    t1, t2 = t.split(":", 1)
+                    title.append(t1.strip())
+                    title.append(t2.strip())
 
         self.register_ocp_keyword(MediaType.MOVIE,
                                   "movie_name", title)
