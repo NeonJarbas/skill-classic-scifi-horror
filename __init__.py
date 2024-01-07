@@ -113,7 +113,7 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
                     "playback": PlaybackType.VIDEO,
                     "skill_icon": self.skill_icon,
                     "skill_id": self.skill_id,
-                    "image": self.default_image
+                    "image": video["images"][0] if video["images"] else self.default_image
                 }
 
         if skill:
