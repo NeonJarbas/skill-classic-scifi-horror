@@ -34,7 +34,7 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
                 title.append(t2.strip())
             if data.get("sound") in ["silent", "Silent, No Music"]:
                 silent_movies.append(t)
-            elif data.get("color") in ["b&w", "black & white", "black and white"]:
+            elif data.get("color") in ["B&W", "b&w", "black & white", "black and white"]:
                 bw_movies.append(t)
             else:
                 title.append(t)
@@ -42,9 +42,9 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
         self.register_ocp_keyword(MediaType.MOVIE,
                                   "movie_name", title)
         self.register_ocp_keyword(MediaType.BLACK_WHITE_MOVIE,
-                                  "bw_movie_name", title)
+                                  "bw_movie_name", bw_movies)
         self.register_ocp_keyword(MediaType.SILENT_MOVIE,
-                                  "silent_movie_name", title)
+                                  "silent_movie_name", silent_movies)
         self.register_ocp_keyword(MediaType.MOVIE,
                                   "movie_streaming_provider",
                                   ["Classic Scifi Horror",
@@ -77,16 +77,19 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
 
         if title or bw_title or s_title:
             candidates = self.archive.values()
+            media_type = MediaType.MOVIE
 
             if title:
                 base_score += 20
                 candidates = [video for video in self.archive.values()
                               if title.lower() in video["title"].lower()]
             elif bw_title:
+                media_type = MediaType.BLACK_WHITE_MOVIE
                 base_score += 10
                 candidates = [video for video in self.archive.values()
                               if bw_title.lower() in video["title"].lower()]
             elif s_title:
+                media_type = MediaType.SILENT_MOVIE
                 base_score += 10
                 candidates = [video for video in self.archive.values()
                               if s_title.lower() in video["title"].lower()]
@@ -95,7 +98,7 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
                 yield {
                     "title": video["title"],
                     "match_confidence": min(100, base_score),
-                    "media_type": MediaType.MOVIE,
+                    "media_type": media_type,
                     "uri": video["streams"][0],
                     "playback": PlaybackType.VIDEO,
                     "skill_icon": self.skill_icon,
