@@ -70,7 +70,7 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
             "skill_icon": self.skill_icon,
             "image": self.default_image,
             "title": "Classic Scifi Horror (Movie Playlist)",
-            "author": "Classic Scifi Horror"
+            "author": "Internet Archive"
         }
 
     @ocp_search()
