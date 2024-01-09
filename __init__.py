@@ -14,9 +14,9 @@ class ClassicScifiHorrorSkill(OVOSCommonPlaybackSkill):
         path = join(dirname(__file__), "res", "scifi_horror.jsondb")
         logo = join(dirname(__file__), "res", "scifihorror.png")
         self.archive = {v["streams"][0]: v for v in JsonStorage(path)["SciFi_Horror"] if v["streams"]}
-        self.default_image = join(dirname(__file__), "ui", "scifihorror.png")
-        self.skill_logo = join(dirname(__file__), "ui", "scifihorror.png")
-        self.skill_icon = join(dirname(__file__), "ui", "scifihorror.png")
+        self.default_image = join(dirname(__file__), "res", "scifihorror.png")
+        self.skill_logo = join(dirname(__file__), "res", "scifihorror.png")
+        self.skill_icon = join(dirname(__file__), "res", "scifihorror.png")
         self.default_bg = logo
         super().__init__(*args, **kwargs)
         self.load_ocp_keywords()
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     s = ClassicScifiHorrorSkill(bus=FakeBus(), skill_id="t.fake")
     for r in s.search_db("play Dementia 13", MediaType.MOVIE):
         print(r)
-        # {'title': 'Dementia 13 (1963)', 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/Dementia131963/Dementia-13.ogv', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/ui/scifihorror.png'}
-        # {'title': 'Dementia 13', 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/dementia13/dementia13.ogv', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/ui/scifihorror.png'}
-        # {'title': 'Dementia 13 (Widescreen 720p HD)', 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/RogerCormansDementiaThirteen720p/dementia13-720p.mp4', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/ui/scifihorror.png'}
-        # {'title': "BOOTLEGGER'S DRIVE-IN SATURDAY NIGHT: THE TERROR & DEMENTIA 13", 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/TERRORDEMENTIA13/VIDEO_TS/VIDEO_TS.VOB', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/ui/scifihorror.png'}
+        # {'title': 'Dementia 13 (1963)', 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/Dementia131963/Dementia-13.ogv', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/res/scifihorror.png'}
+        # {'title': 'Dementia 13', 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/dementia13/dementia13.ogv', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/res/scifihorror.png'}
+        # {'title': 'Dementia 13 (Widescreen 720p HD)', 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/RogerCormansDementiaThirteen720p/dementia13-720p.mp4', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/res/scifihorror.png'}
+        # {'title': "BOOTLEGGER'S DRIVE-IN SATURDAY NIGHT: THE TERROR & DEMENTIA 13", 'match_confidence': 100, 'media_type': <MediaType.MOVIE: 10>, 'uri': 'https://archive.org/download/TERRORDEMENTIA13/VIDEO_TS/VIDEO_TS.VOB', 'playback': <PlaybackType.VIDEO: 1>, 'skill_icon': 'https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin/raw/master/ovos_plugin_common_play/ocp/res/ui/images/ocp.png', 'skill_id': 't.fake', 'image': '/home/miro/PycharmProjects/OCP_sprint/skills/skill-classic-scifi-horror/res/scifihorror.png'}
